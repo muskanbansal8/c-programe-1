@@ -1,0 +1,32 @@
+#include<iostream>
+#include<algorithm>
+//#include<utility>
+using namespace std;
+bool mycompare(pair<string,int>a,pair<string,int>b)
+{
+    if(a.second==b.second)
+    return a.first<b.first;
+    else return a.second>b.second;
+}
+int main() {
+    int min_sal,n;
+    cin>>min_sal>>n;
+    pair<string,int> employee[100001];
+    string s;
+    int sal;
+    for(int i=0;i<n;i++)
+    {
+        cin>>s>>sal;
+        employee[i].first=s;
+        employee[i].second=sal;
+    }
+    sort(employee,employee+n,mycompare);
+    for(int i=0;i<n;i++)
+    {
+        if(employee[i].second>=min_sal)
+        {
+            cout<<employee[i].first<<" "<<employee[i].second<<endl;
+        }
+    }
+	return 0;
+}
