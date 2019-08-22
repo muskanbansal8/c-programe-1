@@ -1,0 +1,48 @@
+#include <iostream>
+//#include<stack>
+#include<vector>
+#include<string>
+using namespace std;
+class stack
+{
+    private:
+    vector<int>v;
+    public:
+    void push(int data)
+    {
+        //int data;
+        v.push_back(data);
+    }
+    bool empty()
+    {
+        return v.size()==0;
+    }
+    int top()
+    {
+        while(!empty())
+        {
+            return v[v.size()-1];
+        }
+    }
+    void pop()
+    {
+        v.pop_back();
+    }
+    
+};
+
+int main() {
+stack s;
+int t;
+for(int i=0;i<5;i++)
+{
+    cin>>t;;
+    s.push(t);
+}
+for(int i=0;i<5;i++)
+{
+    cout<<s.top();
+    s.pop();
+}
+
+}
