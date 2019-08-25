@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;// enter size oof array
+	int target; //enter sum which  you want to found
+	cin>>n>>target;
+	int *a=new int[n];
+	for(int i=0;i<n;i++)
+	{
+	    cin>>a[i];//input array element
+	}
+	int range=(1<<n)-1; //no of subarrays
+	//cout<<range;
+	int sum,m,k=0;
+	for(int i=0;i<=range;i++)
+	{  int no=i,j=0;
+	    sum=0;
+	    m=no;
+	    while(no>0)
+	    {  
+	        //
+	        (no&1)?sum=sum+a[j]:sum+=0; //adding subarray elements
+	        j++;
+	            
+	        no=no>>1;
+	    }
+	    if(sum==target)
+	            { j=0;
+	              k=1;
+	               cout<<" "<<"yes "<< i<<endl;
+	               while(m>0)
+	               {
+	                   (m&1)?cout<<a[j]<<" ": cout<<""; //printing subarray element  having  sum =target
+	                   j++;
+	                   m=m>>1;
+	               }
+	               cout<<endl;
+	            }
+	    
+	}
+	if(k==0)
+	{
+	    cout<<"sum is not present";
+	}
+	return 0;
+}
